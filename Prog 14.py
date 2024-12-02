@@ -9,7 +9,7 @@ import joblib
 from zipfile import ZipFile
 
 # Step 1: Extract the dataset
-data_path = r'C:\Users\Ved Thombre\Downloads\archive.zip'  # Update with your ZIP file path
+data_path = r'C:\Users\Ved Thombre\Downloads\archive.zip'  # Update ZIP file path
 
 with ZipFile(data_path, 'r') as zip:
     zip.extractall(r'C:\Users\Ved Thombre\Downloads')  # Extract to a specific directory
@@ -41,7 +41,7 @@ def load_data(data_dir):
             continue
         
         for img in os.listdir(category_path):
-            if img.endswith('.jpg') or img.endswith('.png'):  # Adjust based on your image formats
+            if img.endswith('.jpg') or img.endswith('.png'):  # Adjust based on  image formats
                 img_array = cv2.imread(os.path.join(category_path, img))  # Read the image
                 img_array = cv2.resize(img_array, (64, 64))  # Resize to 64x64
                 images.append(img_array)
@@ -64,7 +64,7 @@ else:
     X_train, X_test, y_train, y_test = train_test_split(images, labels, test_size=0.2, random_state=42)
 
     # Step 6: Create and train the SVM model
-    model = svm.SVC(kernel='linear')  # You can also try 'rbf', 'poly', etc.
+    model = svm.SVC(kernel='linear')  # can also try 'rbf', 'poly', etc.
     model.fit(X_train, y_train)
 
     # Step 7: Make predictions
